@@ -1,6 +1,5 @@
 import { makeRequest } from '@/backend/api/makeRequest';
 import { test, expect } from '@playwright/test';
-import axios from 'axios';
 
 test.describe('Activities API Tests', () => {
   test('GET /api/v1/activities should return valid data', async () => {
