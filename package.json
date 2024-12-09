@@ -1,0 +1,25 @@
+{
+  "name": "typescript-playwright-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "e2e:fe:headless:test": "npx playwright test tests/ui",
+    "e2e:fe:ui:test": "npx playwright test tests/ui --ui",
+    "e2e:be:test": "npx playwright test tests/api --project=chromium",
+    "e2e:report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "Stefan Machay",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^9.3.0",
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.1",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7"
+  }
+}
