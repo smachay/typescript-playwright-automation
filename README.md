@@ -43,6 +43,40 @@ USER_PASSWORD='secret_sauce'
    npx playwright install
    ```
 
+### Structure:
+- **`sections`**: 
+  - Contains reusable components of pages, such as header and navigation bars.
+  - Implements the **Page Object Model (POM)** for modularity and reusability.
+  - Example: `PageHeader`, `NavigationBar`.
+
+- **`pages`**: 
+  - Represents individual pages of the application, such as `LoginPage`, `InventoryPage`, `CartPage`, and more.
+  - Each class in this folder corresponds to a single page and contains locators and methods to interact with that page.
+
+- **`PageObjects`**: 
+  - Contains base classes representing the more complex website elements.
+  - Includes foundational classes like `PageObjects`, `BaseItemList`, or `BaseItem` to enforce consistent design patterns across the tests.
+
+- **`config`**:
+  - Includes configuration files and shared constants.
+  - Stores URLs, environment variables, and other settings required for frontend tests.
+
+---
+
+## Backend Directory Structure
+
+The **backend** directory contains code for testing backend APIs and utilities for HTTP requests.
+
+### Structure:
+- **`utils/api`**: 
+  - Contains abstractions and utility functions for interacting with APIs.
+  - Includes reusable classes or methods for sending HTTP requests (e.g., GET, POST) and handling responses.
+  - Example: `ApiClient`.
+
+- **`config`**: 
+  - Stores configuration files for backend testing, such as the base URL and.
+  - Helps manage environment-specific configurations.
+
 ## ▶️ Running Tests
 
 To run all the tests, use:
