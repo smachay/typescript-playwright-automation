@@ -6,8 +6,6 @@ This project uses [Playwright](https://playwright.dev/) with TypeScript for end-
 
 To get started with this project, ensure you have **Node.js (>= 16.x)** and **npm** installed on your system.
 
-## 📦 Installation
-
 1. **Clone the repository**:
 
    ```bash
@@ -71,7 +69,7 @@ The **backend** directory contains code for testing backend APIs and utilities f
   - Stores configuration files for backend testing, such as the base URL and.
   - Helps manage environment-specific configurations.
 
-## ▶️ Running Tests
+## Running Tests
 
 To run all the tests, use:
 
