@@ -1,11 +1,6 @@
-## Notes
+# API and UI playwright test
 
-- Tests rely on the Playwright framework.
-- Update the `.env` file to configure URLs or credentials as needed.
-
-# E2E API and UI test s
-
-This project uses [Playwright](https://playwright.dev/) with TypeScript for end-to-end (E2E) testing.
+This project uses [Playwright](https://playwright.dev/) with TypeScript for end-to-end UI and API testing.
 
 ## 🚀 Getting Started
 
