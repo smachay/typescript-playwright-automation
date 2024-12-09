@@ -56,7 +56,6 @@ USER_PASSWORD='secret_sauce'
   - Includes configuration files and shared constants.
   - Stores URLs, environment variables, and other settings required for frontend tests.
 
----
 
 ## Backend Directory Structure
 
