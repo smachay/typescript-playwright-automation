@@ -1,3 +1,4 @@
+import { Button } from '../pageObjects';
 import { BasePage } from './BasePage';
 
 export class CheckoutPage extends BasePage {
@@ -10,9 +11,11 @@ export class CheckoutPage extends BasePage {
   public readonly postalInput = this.page.locator(
     'input[data-test="postalCode"]'
   );
-  public readonly continueButton = this.page.getByRole('button', {
-    name: 'Continue',
-  });
+  public readonly continueButton = new Button(
+    this.page.getByRole('button', {
+      name: 'Continue',
+    })
+  );
 
   public async fillInformationForm(
     firstName: string,

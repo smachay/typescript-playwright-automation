@@ -1,3 +1,4 @@
+import { Button } from '../pageObjects';
 import { CartItemList } from '../pageObjects/List';
 import { BasePage } from './BasePage';
 
@@ -6,7 +7,9 @@ export class CartPage extends BasePage {
     this.page.locator('[data-test="cart-list"]')
   );
 
-  public readonly checkoutButton = this.page.getByRole('button', {
-    name: 'Checkout',
-  });
+  public readonly checkoutButton = new Button(
+    this.page.getByRole('button', {
+      name: 'Checkout',
+    })
+  );
 }

@@ -1,7 +1,8 @@
+import { Label } from '../pageObjects';
 import { BasePage } from './BasePage';
 
 export class LoginPage extends BasePage {
-  public readonly logo = this.page.locator('div.login_logo');
+  public readonly logo = new Label(this.page.locator('div.login_logo'));
   public readonly userNameInput = this.page.locator(
     'input[data-test="username"]'
   );

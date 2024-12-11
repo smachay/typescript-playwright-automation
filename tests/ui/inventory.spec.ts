@@ -20,18 +20,19 @@ test.describe('Inventory', () => {
     const pageHeader = new PageHeader(page);
 
     // Capture the initial number of items in the cart
-    const initialCartCount = await pageHeader.getCartItemCount();
+    const cartCountBefore =
+      await pageHeader.shoppingCartButton.getCounterValue();
 
     // Navigate to the inventory page and select the first item
     const inventoryPage = new InventoryPage(page);
     const inventoryItem = await inventoryPage.itemList.getItemByIndex(0);
-    const itemName = await inventoryItem.getName();
-    const itemPrice = await inventoryItem.getPrice();
-    await inventoryItem.click();
+    const itemName = await inventoryItem.nameLabel.getText();
+    const itemPrice = await inventoryItem.priceLabel.getText();
+    await inventoryItem.nameLabel.click();
 
     // Ensure the correct item page is displayed
     const itemPage = new ItemPage(page);
-    await expect(itemPage.label).toHaveText(itemName);
+    await expect(itemPage.label.element).toHaveText(itemName);
 
     // Add the item to the cart
     await itemPage.changeCartStatusButton.click();
@@ -51,22 +52,23 @@ test.describe('Inventory', () => {
     await checkoutPage.continueButton.click();
 
     // Validate that the cart count has been updated after adding an item
-    const finalCartCount = await pageHeader.getCartItemCount();
-    expect(finalCartCount).toBe(initialCartCount + 1);
+    const cartCountAfter =
+      await pageHeader.shoppingCartButton.getCounterValue();
+    expect(cartCountAfter).toBe(cartCountBefore + 1);
 
     // Validate item details in the overview before completing the order
     const overviewPage = new OverviewPage(page);
     const cartItem = await overviewPage.cartItemList.getItemByIndex(0);
-    await expect(cartItem.nameLabel).toHaveText(itemName);
-    await expect(cartItem.priceLabel).toHaveText(itemPrice);
+    await expect(cartItem.nameLabel.element).toHaveText(itemName);
+    await expect(cartItem.priceLabel.element).toHaveText(itemPrice);
 
     // Ensure the correct item quantity is displayed
-    const cartItemQuantity = await cartItem.getQuantity();
+    const cartItemQuantity = await cartItem.quantityLabel.getValue();
     expect(cartItemQuantity).toBe(1);
 
     // Complete the order and check that the confirmation page is visible
     await overviewPage.finishButton.click();
     const completePage = new CompletePage(page);
-    await expect(completePage.completeLabel).toBeVisible();
+    await expect(completePage.completeLabel.element).toBeVisible();
   });
 });

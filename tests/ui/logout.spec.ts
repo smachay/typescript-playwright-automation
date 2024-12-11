@@ -11,6 +11,6 @@ test.describe('Log out', () => {
     await navigationBar.logoutButton.click();
 
     const loginPage = new LoginPage(page);
-    await expect(loginPage.logo).toBeVisible();
+    await expect(loginPage.logo.element).toBeVisible();
   });
 });
